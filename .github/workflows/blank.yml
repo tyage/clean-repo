@@ -1,0 +1,24 @@
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Create local changes
+        run: |
+          echo test > newfile
+          git add newfile
+      - name: Commit files
+        run: |
+          sudo apt update -qq
+          sudo apt install git
+          git config --local user.email "namatyage@gmail.com"
+          git config --local user.name "tyage"
+          git commit -m "Add changes" -a
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}/tyage-test/clean-repo
+          git push patch-1 origin
