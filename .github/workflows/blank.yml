@@ -19,4 +19,4 @@ jobs:
           git config --local user.name "tyage"
           git commit -m "Add changes" -a
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}/tyage/clean-repo
-          git push origin/patch-4-pushed HEAD
+          git push origin HEAD:patch-4-pushed
