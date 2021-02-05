@@ -9,14 +9,12 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Create local changes
+      - name: Create local changes and commit
         run: |
           echo test > newfile
           git add newfile
-      - name: Commit files
-        run: |
           git config --local user.email "namatyage@gmail.com"
           git config --local user.name "tyage"
           git commit -m "Add changes" -a
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/tyage-test/clean-repo
-          git push origin HEAD:refs/heads/patch-4-pushed
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/tyage/clean-repo
+          git push --force origin HEAD:refs/heads/patch-4-pushed
