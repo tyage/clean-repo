@@ -20,10 +20,5 @@ jobs:
           git config --local user.email "namatyage@gmail.com"
           git config --local user.name "tyage"
           git commit -m "Add changes" -a
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          publish_branch: main
-          force_orphan: true
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}/tyage-test/clean-repo
+          git push patch-1 origin
