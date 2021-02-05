@@ -21,4 +21,4 @@ jobs:
           git config --local user.name "tyage"
           git commit -m "Add changes" -a
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}/tyage-test/clean-repo
-          git push patch-1 origin
+          git push patch-3 origin
